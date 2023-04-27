@@ -3,7 +3,7 @@ import styles from './Profile.module.css'
 
 export function Profile({ user: { username, tag, location, avatar, stats: { followers, views, likes } } }) {
     return <div className={styles.profile} key={username}>
-    <div lassName={styles.description}>
+    <div className={styles.description}>
       <img
         src={avatar}
         alt={username}
