@@ -4,10 +4,20 @@ import { FriendListItem } from './FriendListItem'
 
 export function FriendList({friends}) {
     return (<ul className={styles.friend_list}>
-        <FriendListItem friends={ friends } />
+        {friends.map(friend =>(
+        <FriendListItem 
+        key={friend.id} 
+        avatar={friend.avatar} 
+        name={friend.name} 
+        isOnline = {friend.isOnline} 
+        />
+        ))}
+        
 </ul>)
 }
 
-FriendList.prototype = {
-    friends: PropTypes.arrayOf(PropTypes.shape).isRequired
+FriendList.propTypes = {
+    friends: PropTypes.arrayOf(PropTypes.shape ({
+        id: PropTypes.number.isRequired
+    }).isRequired).isRequired
 }
